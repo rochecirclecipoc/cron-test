@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  example:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: Print the Current Time
+          command: date
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - example
+  hourlyscheduled:
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
+    jobs:
+       - example
