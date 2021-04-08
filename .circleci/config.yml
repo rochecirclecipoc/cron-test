@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   example:
     docker:
-      - image: docker-cache.repository.intranet.roche.com/bash:4.4.19
+      - image: bash:4.4.19
     steps:
       - run:
           name: Print the Current Time
