@@ -1,9 +1,14 @@
 version: 2.1
 
+parameters:
+  docker-image:
+    type: string
+    default: "repository.intranet.roche.com:6581/r/rocker/nest:latest"
+
 jobs:
   example:
     docker:
-      - image: cimg/base:2020.01
+      - image: << pipeline.parameters.docker-image >>
     steps:
       - checkout
       - run:
